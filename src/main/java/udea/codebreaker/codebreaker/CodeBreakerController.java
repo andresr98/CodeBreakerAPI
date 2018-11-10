@@ -1,5 +1,6 @@
 package udea.codebreaker.codebreaker;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +12,7 @@ public class CodeBreakerController {
 	CodeBreaker code;
 	String secret = "";
 	
+	@CrossOrigin(origins = "*")
 	@GetMapping("/guess")
     public Response guess(@RequestParam(value="number", defaultValue="0000") String number) {
         //code = new CodeBreaker(secret);
@@ -36,6 +38,7 @@ public class CodeBreakerController {
 		return response;
     }
 	
+	@CrossOrigin(origins = "*")
 	@PostMapping("/guess")
 	public Response guess(@RequestBody Request request) {
 		
